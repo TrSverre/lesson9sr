@@ -12,5 +12,5 @@
   - name: regrxp nginks
     lineinfile:
       path: /var/www/html/index.nginx-debian.html
-      regexp: '^<p>If you see this page, the nginx web server is successfully installed andworking. Further configuration is required.</p>'
+      regexp: 'Welcome to nginx!'
       line: <p><script> document.write(new Date().toLocaleDateString()); </script></p>
