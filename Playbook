@@ -1,0 +1,16 @@
+---
+- name: prod install nginks
+  hosts: app
+  become: yes
+
+  tasks:
+ 
+  - name: Ensure nginx package is present
+    apt:
+     name: nginx
+     state: present   
+  - name: regrxp nginks
+    lineinfile:
+      path: /var/www/html/index.nginx-debian.html
+      regexp: '^<p>If you see this page, the nginx web server is successfully installed andworking. Further configuration is required.</p>'
+      line: <p><script> document.write(new Date().toLocaleDateString()); </script></p>
